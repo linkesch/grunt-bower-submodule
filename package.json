@@ -1,7 +1,7 @@
 {
   "name": "grunt-bower-submodule",
   "description": "Installs all dependencies of different bower.json's inside a project",
-  "version": "0.1.2",
+  "version": "0.1.2.1",
   "homepage": "https://github.com/mellors/grunt-bower-submodule",
   "author": {
     "name": "Marcel Mellor",
@@ -36,7 +36,7 @@
     "async": "~0.2.9"
   },
   "peerDependencies": {
-    "grunt": "~0.4.2"
+    "grunt": "~0.4.0"
   },
   "keywords": [
     "gruntplugin"
