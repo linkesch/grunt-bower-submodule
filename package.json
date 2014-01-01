@@ -1,0 +1,44 @@
+{
+  "name": "grunt-bower-submodule",
+  "description": "Installs all dependencies of different bower.json's inside a project",
+  "version": "0.1.0",
+  "homepage": "https://github.com/mellors/grunt-bower-submodule",
+  "author": {
+    "name": "Marcel Mellor",
+    "email": "info@mellors.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mellors/grunt-bower-submodule.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mellors/grunt-bower-submodule/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/mellors/grunt-bower-submodule/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "bower": "*",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt": "~0.4.2",
+    "async": "~0.2.9"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.2"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}

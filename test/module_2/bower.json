@@ -1,0 +1,20 @@
+{
+  "name": "mellors-app",
+  "version": "0.0.0",
+  "authors": [
+    "Marcel Mellor <info@mellors.de>"
+  ],
+  "description": "Boilerplate app for ZF2",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery-legacy": "jquery#1.9.x"
+  }
+}
