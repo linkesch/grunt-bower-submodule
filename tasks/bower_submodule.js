@@ -36,6 +36,7 @@ module.exports = function(grunt) {
             '!**/bower_components/**', 
             '!**/test/**', 
             '!**/tests/**', 
+            '!**/build/**', 
             '!**/' + options.targetDir + '/**'
         );        
     
@@ -45,10 +46,10 @@ module.exports = function(grunt) {
             grunt.log.writeln('Parsing ' + path);
             for(var p in config.dependencies){
                 var info = config.dependencies[p].split('#'),
-                    packageName = info[1] ? info[0] : p,
-                    version = info[1] || info[0];
-                    
-                bower_submodule.dependencies[p] = packageName + '#' + version;
+                    packageName = info[1] ? info[0] : '',
+                    version = info[1] ? '#' + info[1] : '*';
+                bower_submodule.dependencies[p] = packageName + version;
+                grunt.log.writeln('Detected ' + bower_submodule.dependencies[p]);
             }
         }
         catch(e){
