@@ -67,8 +67,7 @@ module.exports = function(grunt) {
 
     //Do not use the bower API, as it it's not possible to change the working directory
     var child;
-    child = exec("bower install", function (error, stdout, stderr) {
-        console.log(stdout);
+    child = exec("bower install --allow-root", function (error, stdout, stderr) {
         if (error !== null) {
           console.log('exec error: ' + error);
         }
