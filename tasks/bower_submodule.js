@@ -49,7 +49,7 @@ module.exports = function(grunt) {
                     packageName = info[1] ? info[0] : '',
                     version = info[1] ? '#' + info[1] : '*';
                 bower_submodule.dependencies[p] = packageName + version;
-                grunt.log.writeln('Detected ' + bower_submodule.dependencies[p]);
+                grunt.log.writeln('Detected ' + p + ' => ' + bower_submodule.dependencies[p]);
             }
         }
         catch(e){
@@ -66,17 +66,30 @@ module.exports = function(grunt) {
     grunt.file.write('bower.json', JSON.stringify(bower_submodule, null, 3));
 
     //Do not use the bower API, as it it's not possible to change the working directory
-    var child;
-    child = exec("bower install --allow-root", function (error, stdout, stderr) {
+        exec("bower cache clean --allow-root", function (error, stdout, stderr) {
         if (error !== null) {
           console.log('exec error: ' + error);
         }
         else {
-            grunt.log.writeln('All packages have been installed');
+            exec("bower install --allow-root", function (error, stdout, stderr) {
+                if (error !== null) {
+                  console.log('exec error: ' + error);
+                }
+                else {
+                    exec("bower update --allow-root", function (error, stdout, stderr) {
+                        if (error !== null) {
+                          console.log('exec error: ' + error);
+                        }
+                        else {
+                            grunt.log.writeln('All packages have been installed');
+                        }
+                        //Undo cwd change
+                        process.chdir(rootDir);
+                        taskCompleted();
+                    });
+                }
+            });
         }
-        //Undo cwd change
-        process.chdir(rootDir);
-        taskCompleted();
     });
 
   });
